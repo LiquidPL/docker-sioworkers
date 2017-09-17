@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 BUILD_PACKAGES="build-essential python python-dev virtualenv"
-RUNTIME_PACKAGES="python virtualenv"
+RUNTIME_PACKAGES="python virtualenv lib32z1 lib32ncurses5"
 
 sudo chown -R oioioi:oioioi /sio2
 
