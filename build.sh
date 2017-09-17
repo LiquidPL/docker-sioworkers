@@ -21,7 +21,6 @@ deactivate
 cd ..
 rm -rf build ~/.cache
 
-mkdir sioworkers
 cd sioworkers
 mkdir logs pidfiles
 
