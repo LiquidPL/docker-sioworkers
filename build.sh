@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 BUILD_PACKAGES="build-essential python python-dev virtualenv"
-RUNTIME_PACKAGES="python virtualenv lib32z1 lib32ncurses5"
+RUNTIME_PACKAGES="python virtualenv"
 
 sudo chown -R oioioi:oioioi /sio2
 
@@ -12,11 +12,17 @@ sudo apt-get --no-install-recommends -y install $BUILD_PACKAGES
 virtualenv venv
 . venv/bin/activate
 
-cd sioworkers
+cd build
 python setup.py install
 
 deactivate
 
+# remove code after installing and purge pip cache
+cd ..
+rm -rf build ~/.cache
+
+mkdir sioworkers
+cd sioworkers
 mkdir logs pidfiles
 
 sudo apt-get --purge -y remove $BUILD_PACKAGES
