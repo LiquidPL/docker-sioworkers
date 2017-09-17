@@ -13,7 +13,7 @@ virtualenv venv
 . venv/bin/activate
 
 cd build
-python setup.py install
+pip install .
 
 deactivate
 
