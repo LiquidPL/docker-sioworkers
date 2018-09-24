@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-BUILD_PACKAGES="build-essential python python-dev virtualenv"
-RUNTIME_PACKAGES="python virtualenv lib32z1 lib32ncurses5"
+BUILD_PACKAGES="build-essential python python-dev virtualenv git libdb-dev"
+RUNTIME_PACKAGES="python2.7 libpython2.7 virtualenv lib32z1 lib32ncurses5 libdb-dev"
 
 sudo chown -R oioioi:oioioi /sio2
 
@@ -12,15 +12,21 @@ sudo apt-get --no-install-recommends -y install $BUILD_PACKAGES
 virtualenv venv
 . venv/bin/activate
 
+git clone https://github.com/sio2project/sioworkers.git build
+
 cd build
 pip install .
 
 deactivate
 
-# remove code after installing and purge pip cache
+# remove build directory
 cd ..
-rm -rf build ~/.cache
+rm -rf build
 
+# purge pip cache
+rm -rf ~/.cache
+
+mkdir sioworkers
 cd sioworkers
 mkdir logs pidfiles
 
