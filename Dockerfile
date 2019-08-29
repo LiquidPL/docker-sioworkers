@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:buster
 ENV PYTHONUNBUFFERED 1
 
 COPY sudo.sh /tmp
