@@ -15,8 +15,7 @@ virtualenv venv
 git clone https://github.com/sio2project/sioworkers.git build
 
 cd build
-pip install -r requirements.txt
-python setup.py install
+pip install .
 
 deactivate
 
